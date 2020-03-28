@@ -21,6 +21,9 @@ interface PostalCodeRange {
   void maxCode(int maxCode);
 }
 
+/**
+ * see: https://github.com/OpenHFT/Chronicle-Map/blob/master/docs/CM_Tutorial.adoc#single-chroniclemap-instance-per-jvm
+ */
 class ChronicleMapPersistedTest {
 
   @Test
