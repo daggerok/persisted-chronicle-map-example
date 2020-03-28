@@ -18,10 +18,10 @@ jobs:
       - name: Cache maven
         uses: actions/cache@v1
         with:
-          path: ~/.maven
-          key: maven-${{ matrix.os }}-maven-cache
+          path: ~/.m2
+          key: ${{ runner.os }}-${{ matrix.os }}-maven-${{ hashFiles('**/*.pom.xml') }}
           restore-keys: |
-            ${{ matrix.os }}-maven-cache-
+            ${{ runner.os }}-${{ matrix.os }}-maven-
       - name: Test maven app
         shell: bash
         run: |
@@ -46,7 +46,7 @@ jobs:
       - name: Cache maven
         uses: actions/cache@v1
         with:
-          path: ~/.maven
+          path: ~/.m2
           key: ${{ runner.os }}-${{ matrix.os }}-maven-${{ hashFiles('**/*.pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-${{ matrix.os }}-maven-
