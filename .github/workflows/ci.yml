@@ -25,8 +25,8 @@ jobs:
       - name: Test maven app
         shell: bash
         run: |
-          ./mvnw
-          ./mvnw
+          ./mvnw -DminCode=1 -DmaxCode=10
+          ./mvnw -DminCode=5 -DmaxCode=8
   build-on-windows:
     strategy:
       matrix:
@@ -54,5 +54,5 @@ jobs:
         shell: cmd
         run: |
           @chcp 65001>nul
-          call mvnw
-          call mvnw
+          call mvnw -DminCode=11 -DmaxCode=12
+          call mvnw -DminCode=0 -DmaxCode=6

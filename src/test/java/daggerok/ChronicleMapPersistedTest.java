@@ -46,8 +46,8 @@ class ChronicleMapPersistedTest {
     System.out.println(map);
 
     PostalCodeRange rangeInstance = Values.newHeapInstance(PostalCodeRange.class);
-    rangeInstance.minCode(1);
-    rangeInstance.maxCode(123);
+    rangeInstance.minCode(Integer.parseInt(System.getProperty("minCode", "1")));
+    rangeInstance.maxCode(Integer.parseInt(System.getProperty("maxCode", "123")));
     System.out.println(rangeInstance);
 
     map.put("Amsterdam", rangeInstance);
